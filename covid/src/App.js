@@ -1,24 +1,28 @@
-import React from "react";
-import logo from "./logo.svg";
+import React, { useState, useEffect } from "react";
 import "./App.css";
+import { getData } from "./utils";
+import DataTable from "./components/DataTable/DataTable";
+
+const API = "https://coronavirus-19-api.herokuapp.com/countries/";
+const dataLabels = {
+  country: "Country",
+  cases: "Total cases",
+  todayCases: "New cases",
+  deaths: "Deaths",
+  todayDeaths: "New deaths",
+  recovered: "Total recovered",
+};
 
 function App() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    getData(API, setData);
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {data.length !== 0 && <DataTable data={data} dataLabels={dataLabels} />}
     </div>
   );
 }
