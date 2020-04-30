@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
 import { getData } from "./utils";
 import DataTable from "./components/DataTable/DataTable";
@@ -21,9 +22,11 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      {data.length !== 0 && <DataTable data={data} dataLabels={dataLabels} />}
-    </div>
+    <Router>
+      <div className="App">
+        {data.length !== 0 && <DataTable data={data} dataLabels={dataLabels} />}
+      </div>
+    </Router>
   );
 }
 
