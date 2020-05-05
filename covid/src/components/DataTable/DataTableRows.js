@@ -1,8 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-const DataTableRows = ({ data, dataLabels }) => {
-  const keys = Object.keys(dataLabels);
-
+const DataTableRows = ({ data, keys = Object.keys(data[0]) }) => {
   return data.map((item) => {
     return (
       <tr key={item.country}>
@@ -12,6 +11,11 @@ const DataTableRows = ({ data, dataLabels }) => {
       </tr>
     );
   });
+};
+
+DataTableRows.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.object),
+  keys: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default DataTableRows;

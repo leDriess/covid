@@ -21,3 +21,6 @@ export const compareValues = (key, order = "asc") => {
     return order === "desc" ? comparison * -1 : comparison;
   };
 };
+
+export const getKeyByValue = (object, value) =>
+  Object.keys(object).find((key) => object[key] === value);

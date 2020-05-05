@@ -1,11 +1,18 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-const DataTableHeading = ({ dataLabels }) => (
+const DataTableHeading = ({ headings, sort }) => (
   <tr>
-    {Object.keys(dataLabels).map((type) => (
-      <td key={dataLabels[type]}>{dataLabels[type]}</td>
+    {headings.map((heading) => (
+      <td key={heading} onClick={() => sort(heading)}>
+        {heading}
+      </td>
     ))}
   </tr>
 );
+
+DataTableHeading.propTypes = {
+  headings: PropTypes.arrayOf(PropTypes.string),
+};
 
 export default DataTableHeading;
