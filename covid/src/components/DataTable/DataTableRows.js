@@ -1,14 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const DataTableRows = ({ data, keys = Object.keys(data[0]) }) => {
+const DataTableRows = ({ data, keys = Object.keys(data[0]), filter }) => {
+  const [column, filterText] = filter;
+
   return data.map((item) => {
     return (
-      <tr key={item.country}>
-        {keys.map((key) => (
-          <td key={item.country + key}>{item[key]}</td>
-        ))}
-      </tr>
+      (!item[column] || item[column].toUpperCase().includes(filterText)) && (
+        <tr key={item.country}>
+          {keys.map((key) => (
+            <td key={item.country + key}>{item[key]}</td>
+          ))}
+        </tr>
+      )
     );
   });
 };

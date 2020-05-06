@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
-import { getData } from "./utils";
+import { getData, getNews } from "./utils";
 import DataTable from "./components/DataTable/DataTable";
 
 const API = "https://coronavirus-19-api.herokuapp.com/countries/";
@@ -19,12 +19,19 @@ function App() {
 
   useEffect(() => {
     getData(API, setData);
+    // getNews();
   }, []);
 
   return (
     <Router>
       <div className="App">
-        {data.length !== 0 && <DataTable data={data} dataLabels={dataLabels} />}
+        {data.length !== 0 && (
+          <DataTable
+            data={data}
+            dataLabels={dataLabels}
+            // filterColumn={"country"}
+          />
+        )}
       </div>
     </Router>
   );

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { key } from "./secret-keys/newsAPI";
 
 export const getData = async (URL, dataSetter) => {
   const { data } = await axios.get(URL);
@@ -24,3 +25,15 @@ export const compareValues = (key, order = "asc") => {
 
 export const getKeyByValue = (object, value) =>
   Object.keys(object).find((key) => object[key] === value);
+
+export const getNews = async () => {
+  const data = await axios.get("https://newsapi.org/v2/everything", {
+    params: {
+      q: "covid",
+      sortBy: "publishedAt",
+      language: "en",
+      apiKey: key,
+    },
+  });
+  console.log(data.data);
+};
