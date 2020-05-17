@@ -1,0 +1,22 @@
+$baseColor: hsl(0, 0%, 86%);
+$activeSortColor: hsl(0, 0%, 21%);
+
+.table {
+  margin: 0 auto;
+
+  thead {
+    border-bottom: 2px $baseColor solid;
+  }
+  th {
+    cursor: pointer;
+  }
+}
+
+.icon {
+  margin-left: 7px;
+  color: $baseColor;
+}
+
+.active {
+  color: $activeSortColor;
+}

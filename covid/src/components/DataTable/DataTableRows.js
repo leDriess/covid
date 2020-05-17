@@ -20,6 +20,7 @@ const DataTableRows = ({ data, keys = Object.keys(data[0]), filter }) => {
 DataTableRows.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object),
   keys: PropTypes.arrayOf(PropTypes.string),
+  filter: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default DataTableRows;
