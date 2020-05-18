@@ -1,0 +1,19 @@
+$size: 1em;
+
+.size-1x {
+  height: $size;
+  width: $size;
+}
+
+.size-2x {
+  height: 2 * $size;
+  width: 2 * $size;
+}
+.size-4x {
+  height: 4 * $size;
+  width: 4 * $size;
+}
+.size-8x {
+  height: 8 * $size;
+  width: 8 * $size;
+}

@@ -31,9 +31,9 @@ const DataTableHeading = ({ headings, sort, lastSort }) => {
 };
 
 DataTableHeading.propTypes = {
-  headings: PropTypes.arrayOf(PropTypes.string),
-  sort: PropTypes.func,
-  lastSort: PropTypes.array,
+  headings: PropTypes.arrayOf(PropTypes.string).isRequired,
+  sort: PropTypes.func.isRequired,
+  lastSort: PropTypes.array.isRequired,
 };
 
 export default DataTableHeading;
