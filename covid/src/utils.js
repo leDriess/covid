@@ -1,11 +1,12 @@
 import axios from "axios";
 import { key } from "./secret-keys/newsAPI";
 
-export const getData = async (URL, dataSetter) => {
+export const getData = async (URL, callback, sortOptions = null) => {
   const { data } = await axios.get(URL);
-  data.sort(compareValues("cases", "desc"));
+  if (sortOptions) data.sort(compareValues(sortOptions.key, sortOptions.order));
+  // data.sort(compareValues("cases", "desc"));
   // data.sort((a, b) => b.cases - a.cases);
-  dataSetter(data);
+  callback(data);
 };
 
 export const compareValues = (key, order = "asc") => {
@@ -26,14 +27,16 @@ export const compareValues = (key, order = "asc") => {
 export const getKeyByValue = (object, value) =>
   Object.keys(object).find((key) => object[key] === value);
 
-export const getNews = async () => {
-  const data = await axios.get("https://newsapi.org/v2/everything", {
-    params: {
-      q: "covid",
-      sortBy: "publishedAt",
-      language: "en",
-      apiKey: key,
-    },
-  });
-  console.log(data.data);
+export const getNewsLink = () => {
+  const params = {
+    q: "covid",
+    sortBy: "publishedAt",
+    language: "en",
+    apiKey: key,
+  };
+  const APILink = "https://newsapi.org/v2/everything";
+  const query = Object.keys(params)
+    .map((key) => key + "=" + params[key])
+    .join("&");
+  return [APILink, query].join("?");
 };
