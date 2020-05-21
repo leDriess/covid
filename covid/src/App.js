@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import "bulma";
+// import "bulma";
 import "./App.scss";
 import { getData, getNewsLink } from "./utils";
 import DataTable from "./components/DataTable/DataTable";
 import SpinningLoader from "./components/SpinningLoader/SpinningLoader";
 import NewsPanel from "./components/NewsPanel/NewsPanel";
 import { articles } from "./newsAPI";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 const API = "https://coronavirus-19-api.herokuapp.com/countries/";
 const dataLabels = {
@@ -29,20 +31,28 @@ function App() {
 
   return (
     <Router>
-      <div className="">
-        {/* {data.length !== 0 ? (
-          <DataTable
-            data={data}
-            dataLabels={dataLabels}
-            filterColumn={"country"}
-          />
-        ) : (
-          <SpinningLoader />
-        )} */}
-        <div>
-          <NewsPanel newsList={articles} />
+      <Header {...data[0]} />
+      {data.length !== 0 ? (
+        <DataTable
+          data={data}
+          dataLabels={dataLabels}
+          filterColumn={"country"}
+        />
+      ) : (
+        <div className="section">
+          <div className="container">
+            <div className="level">
+              <div className="level-item">
+                <SpinningLoader size="4" />
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      )}
+      {/* <div>
+        <NewsPanel newsList={articles} />
+      </div> */}
+      <Footer />
     </Router>
   );
 }
