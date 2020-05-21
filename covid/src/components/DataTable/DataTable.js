@@ -39,7 +39,7 @@ const DataTable = ({ data, dataLabels, filterColumn }) => {
 
   return (
     <section className={cx("section")}>
-      <div className="container">
+      <div className="table-container">
         {filterColumn && (
           <div className="level">
             <div className="level-item">

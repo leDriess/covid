@@ -6,7 +6,8 @@ const DataTableRows = ({ data, keys = Object.keys(data[0]), filter }) => {
 
   return data.map((item) => {
     return (
-      (!item[column] || item[column].toUpperCase().includes(filterText)) && (
+      (!item[column] ||
+        item[column].toUpperCase().includes(filterText.trim())) && (
         <tr key={item.country}>
           {keys.map((key) => (
             <td key={item.country + key}>{item[key]}</td>
