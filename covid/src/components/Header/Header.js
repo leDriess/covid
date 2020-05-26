@@ -5,7 +5,7 @@ import SpinningLoader from "../SpinningLoader/SpinningLoader";
 
 const Header = ({ cases, deaths, recovered }) => (
   <header>
-    <section className="hero is-dark is-medium">
+    <section className="hero is-medium">
       <div className="hero-body">
         <div className="container has-text-centered">
           <h1 className={cx("title", styles["is-0"])}>COVID-19</h1>

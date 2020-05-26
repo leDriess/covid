@@ -5,7 +5,7 @@ const NewsPanel = ({ newsList }) => {
   return (
     <div className="container">
       {newsList.map((news) => (
-        <NewsItem key={news.title} {...news} />
+        <NewsItem key={news.author + news.title} {...news} />
       ))}
     </div>
   );
