@@ -10,7 +10,9 @@ const DataTableRows = ({ data, keys = Object.keys(data[0]), filter }) => {
         item[column].toUpperCase().includes(filterText.trim())) && (
         <tr key={item.country}>
           {keys.map((key) => (
-            <td key={item.country + key}>{item[key]}</td>
+            <td key={item.country + key}>
+              {item[key] ? item[key].toLocaleString() : null}
+            </td>
           ))}
         </tr>
       )

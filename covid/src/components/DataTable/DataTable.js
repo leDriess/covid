@@ -38,58 +38,56 @@ const DataTable = ({ data, dataLabels, filterColumn }) => {
   };
 
   return (
-    <section className={cx("section")}>
-      <div className="table-container">
-        {filterColumn && (
-          <div className="level">
-            <div className="level-item">
-              <div className="field">
-                <p className="control has-icons-left">
-                  <input
-                    className="input"
-                    type="text"
-                    placeholder={
-                      "Search " + dataLabels[filterColumn].toLowerCase() + "..."
-                    }
-                    onChange={handleInputTextChange}
-                    value={searchInputText}
-                  />
-                  <span className="icon is-small is-left">
-                    <FontAwesomeIcon icon="search" />
-                  </span>
-                </p>
-              </div>
+    <div>
+      {filterColumn && (
+        <div className="level">
+          <div className="level-item">
+            <div className="field">
+              <p className="control has-icons-left">
+                <input
+                  className="input"
+                  type="text"
+                  placeholder={
+                    "Search " + dataLabels[filterColumn].toLowerCase() + "..."
+                  }
+                  onChange={handleInputTextChange}
+                  value={searchInputText}
+                />
+                <span className="icon is-small is-left">
+                  <FontAwesomeIcon icon="search" />
+                </span>
+              </p>
             </div>
           </div>
-        )}
-        <div className="container">
-          <table
-            className={cx(
-              "table",
-              "is-striped",
-              "is-hoverable",
-              "is-bordered",
-              styles.table
-            )}
-          >
-            <thead>
-              <DataTableHeading
-                headings={headings}
-                sort={sortData}
-                lastSort={Object.entries(lastSort)[0]}
-              />
-            </thead>
-            <tbody>
-              <DataTableRows
-                data={tableData}
-                keys={dataTypes}
-                filter={[filterColumn, searchInputText.toUpperCase()]}
-              />
-            </tbody>
-          </table>
         </div>
+      )}
+      <div className="table-container">
+        <table
+          className={cx(
+            "table",
+            "is-striped",
+            "is-hoverable",
+            "is-bordered",
+            styles.table
+          )}
+        >
+          <thead>
+            <DataTableHeading
+              headings={headings}
+              sort={sortData}
+              lastSort={Object.entries(lastSort)[0]}
+            />
+          </thead>
+          <tbody>
+            <DataTableRows
+              data={tableData}
+              keys={dataTypes}
+              filter={[filterColumn, searchInputText.toUpperCase()]}
+            />
+          </tbody>
+        </table>
       </div>
-    </section>
+    </div>
   );
 };
 

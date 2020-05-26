@@ -12,9 +12,11 @@ const Header = ({ cases, deaths, recovered }) => (
           <div className="level">
             <div className="level-item has-text-centered">
               <div>
-                <p className="heading">Cases</p>
+                <p className={cx("heading", styles["larger-heading"])}>Cases</p>
                 {cases ? (
-                  <p className="title has-text-info">{cases}</p>
+                  <p className="title has-text-info">
+                    {cases.toLocaleString()}
+                  </p>
                 ) : (
                   <SpinningLoader />
                 )}
@@ -22,9 +24,13 @@ const Header = ({ cases, deaths, recovered }) => (
             </div>
             <div className="level-item has-text-centered">
               <div>
-                <p className="heading">Deaths</p>
+                <p className={cx("heading", styles["larger-heading"])}>
+                  Deaths
+                </p>
                 {deaths ? (
-                  <p className="title has-text-danger">{deaths}</p>
+                  <p className="title has-text-danger">
+                    {deaths.toLocaleString()}
+                  </p>
                 ) : (
                   <SpinningLoader />
                 )}
@@ -32,9 +38,13 @@ const Header = ({ cases, deaths, recovered }) => (
             </div>
             <div className="level-item has-text-centered">
               <div>
-                <p className="heading">Recoverd</p>
+                <p className={cx("heading", styles["larger-heading"])}>
+                  Recoverd
+                </p>
                 {recovered ? (
-                  <p className="title has-text-success">{recovered}</p>
+                  <p className="title has-text-success">
+                    {recovered.toLocaleString()}
+                  </p>
                 ) : (
                   <SpinningLoader />
                 )}

@@ -34,7 +34,7 @@ export const getNewsLink = () => {
     language: "en",
     apiKey: key,
   };
-  const APILink = "https://newsapi.org/v2/everything";
+  const APILink = "https://newsapi.org/v2/top-headlines";
   const query = Object.keys(params)
     .map((key) => key + "=" + params[key])
     .join("&");
