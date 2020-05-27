@@ -1,8 +1,14 @@
 import axios from "axios";
 import { key } from "./secret-keys/newsAPI";
 
-export const getData = async (URL, callback, sortOptions = null) => {
-  const { data } = await axios.get(URL);
+export const getData = async (
+  URL,
+  callback,
+  sortOptions = null,
+  proxy = null
+) => {
+  const link = proxy ? `https://cors-anywhere.herokuapp.com/${URL}` : URL;
+  const { data } = await axios.get(link);
   if (sortOptions) data.sort(compareValues(sortOptions.key, sortOptions.order));
   // data.sort(compareValues("cases", "desc"));
   // data.sort((a, b) => b.cases - a.cases);
@@ -30,11 +36,11 @@ export const getKeyByValue = (object, value) =>
 export const getNewsLink = () => {
   const params = {
     q: "covid",
-    sortBy: "publishedAt",
+    // sortBy: "publishedAt",
     language: "en",
     apiKey: key,
   };
-  const APILink = "https://newsapi.org/v2/top-headlines";
+  const APILink = "https://newsapi.org/v2/everything";
   const query = Object.keys(params)
     .map((key) => key + "=" + params[key])
     .join("&");

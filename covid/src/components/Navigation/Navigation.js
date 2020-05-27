@@ -1,9 +1,9 @@
 import React from "react";
 import NavigationLink from "./NavigationLink";
 
-const Navigation = ({ to, exact, children, activeClass }) => {
+const Navigation = () => {
   return (
-    <nav className="breadcrumb is-centered">
+    <nav className="breadcrumb is-medium is-centered">
       <ul>
         <NavigationLink exact to="/" activeClass="is-active">
           Cases

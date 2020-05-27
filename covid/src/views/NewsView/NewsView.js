@@ -7,10 +7,15 @@ const NewsView = () => {
   const [news, setNews] = useState([]);
 
   useEffect(() => {
-    getData(getNewsLink(), (res) => {
-      const { articles } = res;
-      setNews(articles);
-    });
+    getData(
+      getNewsLink(),
+      (res) => {
+        const { articles } = res;
+        setNews(articles);
+      },
+      null,
+      true
+    );
   }, []);
 
   return (
