@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.scss";
-import { getData, getNewsLink } from "./utils";
-import DataTable from "./components/DataTable/DataTable";
-import SpinningLoader from "./components/SpinningLoader/SpinningLoader";
-import NewsPanel from "./components/NewsPanel/NewsPanel";
-import { articles } from "./newsAPI";
+import { getData } from "./utils";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import MainView from "./views/MainView/MainView";

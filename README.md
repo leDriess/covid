@@ -9,7 +9,7 @@ This app shows number of cases, deaths and recovered from corona virus. Addition
 - [NewsAPI](https://https://newsapi.org/)
 - [covidAPI](https://github.com/javieraviles/covidAPI)
 
-**Live demo:** https://sleepy-mestorf-ce36e5.netlify.app/
+**Live demo:** [ledriess-covid19.netlify.app](ledriess-covid19.netlify.app)
 
 ### Screenshots
 
